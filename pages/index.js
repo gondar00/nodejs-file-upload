@@ -13,7 +13,7 @@ function postFile (url, fileSelector) {
 
 export default () => {
   const [rows, setRows] = React.useState([])
-  const [delimiter, setDelimiter] = React.useState('|')
+  const [delimiter, setDelimiter] = React.useState(',')
   const [lines, setLines] = React.useState('2')
 
   const onSubmit = (e) => {
@@ -22,8 +22,6 @@ export default () => {
       .then(({ data }) => setRows(data.split(/\n/).filter(d => d)))
       .catch(error => console.error(error))
   }
-
-  console.log(rows)
 
   return (
     <div className='holder'>
